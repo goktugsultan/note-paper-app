@@ -12,6 +12,25 @@ code {
     monospace;
 }
 
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark-mode{
+  background-color: black;
+}
+
+.dark-mode h1{
+  color: rgb(185, 185, 185);
+}
+
+.dark-mode button{
+  background-color: rgb(187, 185, 185) !important;
+  color:#102e5f !important;
+}
+
 .container{
   max-width: 960px;
   margin-right: auto;
@@ -88,4 +107,9 @@ textarea:focus{
 
 .search input:focus{
   outline: none;
+}
+
+.mode-icon{
+  vertical-align: bottom;
+  padding-left: 10px;
 }

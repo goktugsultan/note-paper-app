@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Header from './components/Header';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
 
@@ -29,6 +30,8 @@ function App() {
 
 const [searchText, setSearchText] = useState('')
 
+const [darkMode, setDarkMode] = useState(false)
+
 const addNote = (text) =>{
   const date = new Date();
   const newNote = {
@@ -47,7 +50,9 @@ const deleteNote = (id) => {
 }
 
   return (
-    <div className="container">
+   <div className={`${darkMode && 'dark-mode'}`}>
+      <div className="container">
+      <Header handleToggleDarkMode={setDarkMode} darkMode={darkMode}/>
       <Search handleSearchNote={setSearchText}/>
       <NotesList 
           notes={notes.filter((note)=>
@@ -57,6 +62,7 @@ const deleteNote = (id) => {
           handleDeleteNote={deleteNote}
           />
     </div>
+   </div>
   );
 }
 

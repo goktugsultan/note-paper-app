@@ -26,9 +26,21 @@ function App() {
   },
 ]);
 
+const addNote = (text) =>{
+  const date = new Date();
+  const newNote = {
+    id: Math.random(),
+    text: text,
+    date: date.toDateString()
+  }
+
+  const newNotes = [...notes,newNote]
+  setNotes(newNotes)
+}
+
   return (
     <div className="container">
-      <NotesList notes={notes}/>
+      <NotesList notes={notes} handleAddNote={addNote}/>
     </div>
   );
 }

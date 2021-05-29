@@ -27,6 +27,31 @@ code {
 
 }
 
+.note.new{
+  background-color: cyan;
+}
+
+textarea{
+  border: none;
+  resize: none;
+  background-color: cyan;
+}
+
+textarea:focus{
+  outline: none;
+}
+
+.save{
+    outline: none;
+    cursor: pointer;
+    background: #4d7ae6;
+    font-size: 14px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 30px 5px 30px;
+}
+
 .note{
   background-color: #fef68a;
   border-radius: 10px;

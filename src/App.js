@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NotesList from './components/NotesList';
+import Search from './components/Search';
 
 function App() {
 
@@ -26,12 +27,14 @@ function App() {
   },
 ]);
 
+const [searchText, setSearchText] = useState('')
+
 const addNote = (text) =>{
   const date = new Date();
   const newNote = {
     id: Math.random(),
     text: text,
-    date: date.toDateString()
+    date: date.toLocaleDateString()
   }
 
   const newNotes = [...notes,newNote]
@@ -45,8 +48,11 @@ const deleteNote = (id) => {
 
   return (
     <div className="container">
+      <Search handleSearchNote={setSearchText}/>
       <NotesList 
-          notes={notes} 
+          notes={notes.filter((note)=>
+            note.text.toLocaleLowerCase().includes(searchText) 
+            )} 
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
           />

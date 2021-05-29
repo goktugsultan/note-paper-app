@@ -2,16 +2,14 @@ import React from 'react'
 import { MdDeleteSweep } from "react-icons/md";
 
 
-export default function Note() {
+export default function Note({ id, text, date}) {
     return (
         <div className="note">
-            <span>Hello I'm first note</span>
+            <span>{text}</span>
             <div className="note-footer">
-                <small>29 May 2021</small>
-                <MdDeleteSweep />
-                
+                <small>{date}</small>
+                <MdDeleteSweep  className="delete-icon"/>
             </div>
-            
         </div>
     )
 }

@@ -2,10 +2,18 @@ import React from 'react'
 import Note from './Note';
 
 
-export default function NotesList() {
+const NotesList = ({ notes }) => {
     return (
-        <div>
-            <Note/>
+        <div className="notes-list">
+            {notes.map((note)=>
+                <Note 
+                    id={note.id}
+                    text={note.text}
+                    date={note.date}
+                />
+            )}
         </div>
     )
 }
+
+export default NotesList

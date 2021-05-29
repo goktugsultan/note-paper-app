@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
@@ -31,6 +31,19 @@ function App() {
 const [searchText, setSearchText] = useState('')
 
 const [darkMode, setDarkMode] = useState(false)
+
+useEffect(() => {
+  const savedNotes = JSON.parse(
+    localStorage.getItem('note-paper-app-data')
+  )
+  if(savedNotes) {
+    setNotes(savedNotes)
+  }
+}, [])
+
+useEffect(() => {
+  localStorage.setItem('note-paper-app-data', JSON.stringify(notes))
+}, [notes])
 
 const addNote = (text) =>{
   const date = new Date();
